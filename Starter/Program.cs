@@ -120,8 +120,7 @@ do
                 }
             }
             Console.WriteLine("\n\rPress the Enter key to continue");
-            readResult = Console.ReadLine();
-
+            readResult = Console.ReadLine();           
             break;
 
         case "2":
@@ -138,6 +137,7 @@ do
             }
 
             string dogDescription = "";
+            bool noMatchesDog = true;
             for (int i = 0; i < maxPets; i++)
             {
                 if(ourAnimals[i, 1].Contains("dog"))
@@ -147,10 +147,18 @@ do
                     {
                         Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
                         Console.WriteLine(dogDescription);
+
+                        noMatchesDog = false;
                     }
                 }
             }
 
+            if (noMatchesDog)
+            {
+                Console.WriteLine("None of our dogs are a match found for: " + dogCharacteristic);
+            }
+            Console.WriteLine("\n\rPress the Enter key to continue");
+            readResult = Console.ReadLine();
             break;
 
         default:
